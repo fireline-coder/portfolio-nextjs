@@ -1,35 +1,32 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 export default function OverviewPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
+    <div className="mx-auto max-w-4xl px-4 py-10">
       {/* Hero */}
-      <section className="flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
+      <section className="flex flex-col items-center gap-6 text-center">
         <Image
           src="/images/prof.jpg"
           alt="Max Ellis"
-          width={200}
-          height={200}
-          className="rounded-full border-4 border-primary object-cover"
+          width={180}
+          height={180}
+          className="rounded-full border-2 border-primary/50 object-cover"
           priority
         />
         <div>
           <h1 className="text-4xl font-bold tracking-tight">Max Ellis</h1>
-          <p className="mt-2 text-xl text-muted-foreground">
-            Senior Software Engineer | Problem Solver with a Firefighter&apos;s
-            Resolve
+          <p className="mt-2 text-lg text-muted-foreground">
+            Senior Software Engineer building resilient systems &mdash; with a
+            firefighter&apos;s mindset
           </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-2 md:justify-start">
-            <Badge variant="secondary">Spring Boot</Badge>
+          <div className="mt-5 flex flex-wrap justify-center gap-2.5">
             <Badge variant="secondary">Kafka</Badge>
             <Badge variant="secondary">Snowflake</Badge>
             <Badge variant="secondary">AWS</Badge>
-            <Badge variant="secondary">Kubernetes</Badge>
             <Badge variant="secondary">PostgreSQL</Badge>
-            <Badge variant="secondary">AWS Bedrock</Badge>
-            <Badge variant="secondary">Claude Code</Badge>
             <Badge variant="secondary">Terraform</Badge>
             <Badge variant="secondary">RAG</Badge>
           </div>
@@ -37,10 +34,10 @@ export default function OverviewPage() {
       </section>
 
       {/* About */}
-      <Card className="mt-12">
-        <CardContent className="prose prose-invert max-w-none pt-6">
+      <Card className="mt-14 border-border/50">
+        <CardContent className="max-w-none px-8 py-8">
           <h2 className="text-2xl font-semibold">About Me</h2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">
+          <p className="mt-5 leading-relaxed text-muted-foreground">
             High-velocity Senior Software Engineer with a proven track record of
             architecting scalable data platforms and automating mission-critical
             infrastructure. Expert in backend development for distributed
@@ -67,7 +64,7 @@ export default function OverviewPage() {
       </Card>
 
       {/* Quick links */}
-      <div className="mt-12 grid gap-4 sm:grid-cols-3">
+      <div className="mt-14 grid gap-5 sm:grid-cols-3">
         <QuickLink
           href="/experience"
           title="Work Experience"
@@ -98,13 +95,13 @@ function QuickLink({
   description: string;
 }) {
   return (
-    <a href={href} className="group">
-      <Card className="h-full transition-colors group-hover:bg-accent">
-        <CardContent className="pt-6">
+    <Link href={href} className="group">
+      <Card className="h-full border-border/50 transition-all duration-200 group-hover:border-primary/30 group-hover:bg-accent">
+        <CardContent className="px-6 py-6">
           <h3 className="font-semibold">{title}</h3>
-          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+          <p className="mt-2 text-sm text-muted-foreground">{description}</p>
         </CardContent>
       </Card>
-    </a>
+    </Link>
   );
 }
