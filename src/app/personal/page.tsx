@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
@@ -48,10 +50,24 @@ export default function PersonalPage() {
           What I&apos;m Into
         </h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <Card className="border-border/50">
+          <Card className="overflow-hidden border-border/50">
+            <Link
+              href="https://experience.arcgis.com/experience/da5c827bd3714267b847563ca52d7320"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Image
+                src="/images/fire_map.png"
+                alt="NIFC Active Fire Map showing wildfires across the Pacific Northwest"
+                width={600}
+                height={400}
+                className="w-full object-cover transition-opacity hover:opacity-80"
+              />
+            </Link>
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">
-                Wildfire & Climate
+                Wildfire &amp; Climate
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 You can take the firefighter off the line, but you can&apos;t
@@ -61,13 +77,23 @@ export default function PersonalPage() {
                 part situational awareness, part genuine fascination with how
                 these systems work.
               </p>
+              <p className="mt-2 text-xs text-muted-foreground/60">
+                Click the map to explore the live NIFC fire map &rarr;
+              </p>
             </CardContent>
           </Card>
 
-          <Card className="border-border/50">
+          <Card className="overflow-hidden border-border/50">
+            <Image
+              src="/images/investing.png"
+              alt="Technical analysis candlestick chart"
+              width={600}
+              height={400}
+              className="w-full object-cover"
+            />
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">
-                Finance & Markets
+                Finance &amp; Markets
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 I love digging into company fundamentals &mdash; reading 10-Ks,
@@ -89,34 +115,45 @@ export default function PersonalPage() {
         <h2 className="text-2xl font-semibold text-foreground">
           When I&apos;m Not Working
         </h2>
-        <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-          <div className="grid gap-5 sm:grid-cols-2">
-            <Card className="border-border/50">
-              <CardContent className="px-6 py-5">
-                <h3 className="font-semibold text-foreground">
-                  Hiking & Travel
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Growing up in the Pacific Northwest and spending summers on
-                  fire lines gave me an appreciation for getting outside that
-                  never faded. I try to hit a new trail or a new city whenever I
-                  can.
-                </p>
-              </CardContent>
-            </Card>
+        <div className="mt-5 grid gap-5 sm:grid-cols-2">
+          <Card className="overflow-hidden border-border/50">
+            <Image
+              src="/images/osaka_castle.png"
+              alt="Osaka Castle in Japan on a clear day"
+              width={600}
+              height={400}
+              className="w-full object-cover"
+            />
+            <CardContent className="px-6 py-5">
+              <h3 className="font-semibold text-foreground">
+                Hiking &amp; Travel
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Growing up in the Pacific Northwest and spending summers on fire
+                lines gave me an appreciation for getting outside that never
+                faded. I try to hit a new trail or a new city whenever I can.
+              </p>
+            </CardContent>
+          </Card>
 
-            <Card className="border-border/50">
-              <CardContent className="px-6 py-5">
-                <h3 className="font-semibold text-foreground">Gaming</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  I take my games seriously &mdash; I peaked at top 500 in
-                  Overwatch, which is roughly the top 0.1% of players. That
-                  competitive drive actually led to a connection that helped me
-                  get into grad school. Full story coming soon.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="overflow-hidden border-border/50">
+            <Image
+              src="/images/top500.png"
+              alt="Overwatch competitive profile showing top 500 rank"
+              width={600}
+              height={400}
+              className="w-full object-cover"
+            />
+            <CardContent className="px-6 py-5">
+              <h3 className="font-semibold text-foreground">Gaming</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                I take my games seriously &mdash; I peaked at top 500 in
+                Overwatch, which is roughly the top 0.1% of players. That
+                competitive drive actually led to a connection that helped me
+                get into grad school. Full story coming soon.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
