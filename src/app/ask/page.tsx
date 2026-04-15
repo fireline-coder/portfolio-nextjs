@@ -8,10 +8,10 @@ const LAMBDA_URL =
   "https://fj3igai6rjmb7hh2m27ga4iyhi0znfbg.lambda-url.us-west-2.on.aws/";
 
 const examplePrompts = [
-  "What experience do you have with Kafka?",
-  "Tell me about your firefighting background",
+  "What did firefighting teach you about incident response?",
+  "How did you scale data pipelines to 1M+ records?",
+  "How did you build a multi-agent RAG system?",
   "What projects show leadership?",
-  "How did you build the RAG system?",
   "What's your tech stack?",
 ];
 
@@ -117,9 +117,10 @@ export default function AskPage() {
                   <p className="text-lg font-medium text-foreground">
                     What would you like to know?
                   </p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Ask me about my experience, projects, skills, or anything on
-                    my portfolio.
+                  <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                    Ask about my work &mdash; from building distributed data
+                    systems to designing AI infrastructure, or how firefighting
+                    shaped my approach to engineering.
                   </p>
                 </div>
                 <div className="flex max-w-xl flex-wrap justify-center gap-2">
