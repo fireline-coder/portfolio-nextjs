@@ -207,9 +207,8 @@ export default function SpeakeasyDemosPage() {
               variant="outline"
               size="sm"
               className="mt-3"
-              disabled
             >
-              Ask me about this (Coming Soon)
+              Ask me about this
             </Button>
           </Link>
         </div>

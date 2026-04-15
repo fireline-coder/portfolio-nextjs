@@ -1,78 +1,200 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState, useRef, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
+const LAMBDA_URL =
+  "https://fj3igai6rjmb7hh2m27ga4iyhi0znfbg.lambda-url.us-west-2.on.aws/";
 
 const examplePrompts = [
-  "What experience do you have with backend systems?",
-  "Tell me about your firefighting experience",
+  "What experience do you have with Kafka?",
+  "Tell me about your firefighting background",
   "What projects show leadership?",
+  "How did you build the RAG system?",
   "What's your tech stack?",
-  "How did you reduce data errors at Act-On?",
 ];
 
+type Message = {
+  role: "user" | "assistant";
+  content: string;
+};
+
 export default function AskPage() {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [sessionId, setSessionId] = useState("");
+  const [error, setError] = useState("");
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  async function sendMessage(text: string) {
+    if (!text.trim() || isLoading) return;
+
+    const userMessage: Message = { role: "user", content: text.trim() };
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch(LAMBDA_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: text.trim(),
+          sessionId: sessionId,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      if (data.sessionId) {
+        setSessionId(data.sessionId);
+      }
+
+      const assistantMessage: Message = {
+        role: "assistant",
+        content: data.response,
+      };
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch {
+      setError("Failed to connect. Please try again in a moment.");
+    } finally {
+      setIsLoading(false);
+      inputRef.current?.focus();
+    }
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    sendMessage(input);
+  }
+
+  function handleNewChat() {
+    setMessages([]);
+    setSessionId("");
+    setError("");
+    inputRef.current?.focus();
+  }
+
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
-      <h1 className="text-3xl font-bold tracking-tight">Ask Me Anything</h1>
-      <p className="mt-2 text-muted-foreground">
-        Chat with an AI agent trained on my background, projects, and
-        experience. Powered by AWS Bedrock.
-      </p>
+    <div className="mx-auto flex max-w-4xl flex-col px-4 py-12">
+      <div className="mb-8">
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold tracking-tight">
+            Ask Me Anything
+          </h1>
+          {messages.length > 0 && (
+            <Button variant="outline" size="sm" onClick={handleNewChat}>
+              New chat
+            </Button>
+          )}
+        </div>
+        <p className="mt-2 text-muted-foreground">
+          Chat with an AI agent trained on my background, projects, and
+          experience. Powered by AWS Bedrock.
+        </p>
+      </div>
 
-      <Card className="mt-10">
-        <CardHeader>
-          <CardTitle className="text-lg">AI Chat Agent</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          {/* Placeholder chat area */}
-          <div className="flex min-h-[300px] items-center justify-center rounded-lg border border-dashed border-border bg-muted/30">
-            <div className="text-center">
-              <p className="text-lg font-medium text-muted-foreground">
-                RAG Agent Coming Soon
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                This will be an interactive chat powered by AWS Bedrock + Lambda
-              </p>
-            </div>
+      <Card className="flex flex-1 flex-col border-border/50">
+        <CardContent className="flex flex-1 flex-col gap-4 p-4">
+          {/* Messages area */}
+          <div className="flex min-h-[400px] flex-col gap-4 overflow-y-auto rounded-lg border border-border/50 bg-muted/10 p-4">
+            {messages.length === 0 ? (
+              <div className="flex flex-1 flex-col items-center justify-center gap-6">
+                <div className="text-center">
+                  <p className="text-lg font-medium text-foreground">
+                    What would you like to know?
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Ask me about my experience, projects, skills, or anything on
+                    my portfolio.
+                  </p>
+                </div>
+                <div className="flex max-w-xl flex-wrap justify-center gap-2">
+                  {examplePrompts.map((prompt) => (
+                    <Button
+                      key={prompt}
+                      variant="outline"
+                      size="sm"
+                      className="text-xs"
+                      onClick={() => sendMessage(prompt)}
+                    >
+                      {prompt}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <>
+                {messages.map((msg, i) => (
+                  <div
+                    key={i}
+                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className={`max-w-[80%] rounded-lg px-4 py-3 text-sm leading-relaxed ${
+                        msg.role === "user"
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-muted text-foreground"
+                      }`}
+                    >
+                      {msg.content}
+                    </div>
+                  </div>
+                ))}
+                {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="max-w-[80%] rounded-lg bg-muted px-4 py-3 text-sm text-muted-foreground">
+                      <span className="inline-flex gap-1">
+                        <span className="animate-bounce">.</span>
+                        <span className="animate-bounce [animation-delay:0.1s]">
+                          .
+                        </span>
+                        <span className="animate-bounce [animation-delay:0.2s]">
+                          .
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {error && (
+                  <div className="flex justify-center">
+                    <p className="text-sm text-destructive">{error}</p>
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
+              </>
+            )}
           </div>
 
-          {/* Example prompts */}
-          <div>
-            <p className="mb-3 text-sm font-medium">Try asking:</p>
-            <div className="flex flex-wrap gap-2">
-              {examplePrompts.map((prompt) => (
-                <Button
-                  key={prompt}
-                  variant="outline"
-                  size="sm"
-                  className="text-xs"
-                  disabled
-                >
-                  {prompt}
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          {/* Placeholder input */}
-          <div className="flex gap-2">
+          {/* Input */}
+          <form onSubmit={handleSubmit} className="flex gap-2">
             <input
+              ref={inputRef}
               type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me anything about my experience..."
-              className="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground"
-              disabled
+              className="flex-1 rounded-lg border border-input bg-background px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              disabled={isLoading}
+              maxLength={1000}
             />
-            <Button disabled>Send</Button>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Badge variant="secondary">Phase 2</Badge>
-            <span className="text-xs text-muted-foreground">
-              AWS Bedrock + Lambda + API Gateway integration
-            </span>
-          </div>
+            <Button type="submit" disabled={isLoading || !input.trim()}>
+              Send
+            </Button>
+          </form>
         </CardContent>
       </Card>
     </div>

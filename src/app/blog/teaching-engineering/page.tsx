@@ -252,8 +252,8 @@ export default function TeachingEngineeringPage() {
             work.
           </p>
           <Link href="/ask">
-            <Button variant="outline" size="sm" className="mt-3" disabled>
-              Ask me about this (Coming Soon)
+            <Button variant="outline" size="sm" className="mt-3">
+              Ask me about this
             </Button>
           </Link>
         </div>
