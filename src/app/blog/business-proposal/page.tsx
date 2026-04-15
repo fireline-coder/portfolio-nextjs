@@ -20,7 +20,7 @@ export default function BusinessProposalPage() {
         <Badge variant="secondary">Strategy</Badge>
         <Badge variant="secondary">Leadership</Badge>
         <Badge variant="secondary">AI</Badge>
-        <span className="text-sm text-muted-foreground">April 2026</span>
+        <span className="text-sm text-muted-foreground">July 2025</span>
       </div>
 
       <Separator className="my-8" />

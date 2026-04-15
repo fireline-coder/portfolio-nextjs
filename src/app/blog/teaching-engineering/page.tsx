@@ -19,7 +19,7 @@ export default function TeachingEngineeringPage() {
         <Badge variant="secondary">Mentorship</Badge>
         <Badge variant="secondary">Teaching</Badge>
         <Badge variant="secondary">Engineering Culture</Badge>
-        <span className="text-sm text-muted-foreground">April 2026</span>
+        <span className="text-sm text-muted-foreground">February 2026</span>
       </div>
 
       <Separator className="my-8" />

@@ -20,7 +20,7 @@ export default function FirelineToPipelinePage() {
         <Badge variant="secondary">Firefighting</Badge>
         <Badge variant="secondary">Incident Response</Badge>
         <Badge variant="secondary">Engineering Culture</Badge>
-        <span className="text-sm text-muted-foreground">April 2026</span>
+        <span className="text-sm text-muted-foreground">March 2024</span>
       </div>
 
       <Separator className="my-8" />

@@ -21,7 +21,7 @@ export default function BuildingRagSystemPage() {
         <Badge variant="secondary">AWS Bedrock</Badge>
         <Badge variant="secondary">Architecture</Badge>
         <Badge variant="secondary">AI</Badge>
-        <span className="text-sm text-muted-foreground">April 2026</span>
+        <span className="text-sm text-muted-foreground">January 2026</span>
       </div>
 
       <Separator className="my-8" />

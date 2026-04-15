@@ -21,7 +21,7 @@ export default function SpeakeasyDemosPage() {
         <Badge variant="secondary">Engineering Culture</Badge>
         <Badge variant="secondary">Mentorship</Badge>
         <Badge variant="secondary">Knowledge Sharing</Badge>
-        <span className="text-sm text-muted-foreground">April 2026</span>
+        <span className="text-sm text-muted-foreground">March 2026</span>
       </div>
 
       <Separator className="my-8" />

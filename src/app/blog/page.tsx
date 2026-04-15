@@ -5,39 +5,12 @@ import Link from "next/link";
 const publishedPosts = [
   {
     title:
-      "From Fireline to Pipeline: What Wildland Firefighting Taught Me About Incident Response",
-    description:
-      "Drawing parallels between fighting wildfires and fighting production fires — the training, the decision-making, the communication, and the discipline that transfers directly.",
-    href: "/blog/fireline-to-pipeline",
-    tags: ["Firefighting", "Incident Response", "Engineering Culture"],
-    date: "April 2026",
-  },
-  {
-    title:
-      "I Wrote a 50-Page Business Proposal as an Engineer — Here's Why",
-    description:
-      "Why engineers should think beyond code. How I saw an opportunity to shift my company toward AI-driven products, and what it felt like to see leadership adopt the vision.",
-    href: "/blog/business-proposal",
-    tags: ["Strategy", "Leadership", "AI"],
-    date: "April 2026",
-  },
-  {
-    title:
-      "Building a RAG System From Scratch in 3 Months (As the Only Backend Engineer)",
-    description:
-      "A technical deep-dive into multi-agent RAG architecture with Bedrock. The real challenges: Cloudflare bypass, auth handling, async queuing, many-to-many mapping.",
-    href: "/blog/building-rag-system",
-    tags: ["RAG", "AWS Bedrock", "Architecture", "AI"],
-    date: "April 2026",
-  },
-  {
-    title:
       "The Speakeasy Demo: Creating Space for Engineers to Go Deep",
     description:
       "Weekly tech demos are great for visibility, but some conversations need more room. I started a monthly \"speakeasy\" — informal, no time limits, just engineers going deep on what excites them.",
     href: "/blog/speakeasy-demos",
     tags: ["Engineering Culture", "Mentorship", "Knowledge Sharing"],
-    date: "April 2026",
+    date: "March 2026",
   },
   {
     title:
@@ -46,7 +19,34 @@ const publishedPosts = [
       "From CRLA-certified STEM tutor to senior engineer. The surprising overlap between debugging a student's mental model and debugging a distributed system.",
     href: "/blog/teaching-engineering",
     tags: ["Mentorship", "Teaching", "Engineering Culture"],
-    date: "April 2026",
+    date: "February 2026",
+  },
+  {
+    title:
+      "Building a RAG System From Scratch in 3 Months (As the Only Backend Engineer)",
+    description:
+      "A technical deep-dive into multi-agent RAG architecture with Bedrock. The real challenges: Cloudflare bypass, auth handling, async queuing, many-to-many mapping.",
+    href: "/blog/building-rag-system",
+    tags: ["RAG", "AWS Bedrock", "Architecture", "AI"],
+    date: "January 2026",
+  },
+  {
+    title:
+      "I Wrote a 50-Page Business Proposal as an Engineer — Here's Why",
+    description:
+      "Why engineers should think beyond code. How I saw an opportunity to shift my company toward AI-driven products, and what it felt like to see leadership adopt the vision.",
+    href: "/blog/business-proposal",
+    tags: ["Strategy", "Leadership", "AI"],
+    date: "July 2025",
+  },
+  {
+    title:
+      "From Fireline to Pipeline: What Wildland Firefighting Taught Me About Incident Response",
+    description:
+      "Drawing parallels between fighting wildfires and fighting production fires — the training, the decision-making, the communication, and the discipline that transfers directly.",
+    href: "/blog/fireline-to-pipeline",
+    tags: ["Firefighting", "Incident Response", "Engineering Culture"],
+    date: "March 2024",
   },
 ];
 
