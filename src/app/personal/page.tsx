@@ -2,6 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { ImageCarousel } from "@/components/image-carousel";
+
+const travelImages = [
+  { src: "/images/travel/osaka_castle.png", alt: "Osaka Castle in Japan on a clear day" },
+  // Add more travel/hiking photos here:
+  // { src: "/images/travel/your_photo.jpg", alt: "Description" },
+];
 
 export default function PersonalPage() {
   return (
@@ -116,14 +123,7 @@ export default function PersonalPage() {
         </h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
           <Card className="overflow-hidden border-border/50">
-            <Image
-              src="/images/osaka_castle.png"
-              alt="Osaka Castle in Japan on a clear day"
-              width={600}
-              height={400}
-              className="h-48 w-full object-cover"
-              unoptimized
-            />
+            <ImageCarousel images={travelImages} />
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">
                 Hiking &amp; Travel
