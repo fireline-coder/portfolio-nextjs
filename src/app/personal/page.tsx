@@ -137,16 +137,16 @@ export default function PersonalPage() {
           </Card>
 
           <Card className="overflow-hidden border-border/50">
-            <div className="relative">
+            <div className="relative flex h-48 items-center justify-center bg-[#1a1a2e]">
               <Image
                 src="/images/top500.png"
                 alt="Overwatch competitive profile showing top 500 rank"
                 width={600}
                 height={400}
-                className="h-48 w-full object-cover object-top"
+                className="h-full w-full object-contain"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-black/10" />
             </div>
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">Gaming</h3>
