@@ -6,6 +6,7 @@ import { useState, useCallback } from "react";
 interface CarouselImage {
   src: string;
   alt: string;
+  caption?: string;
 }
 
 export function ImageCarousel({ images }: { images: CarouselImage[] }) {
@@ -30,6 +31,15 @@ export function ImageCarousel({ images }: { images: CarouselImage[] }) {
         className="h-48 w-full object-cover transition-opacity duration-300"
         unoptimized
       />
+
+      {/* Caption */}
+      {images[current].caption && (
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 pb-6 pt-8">
+          <p className="text-xs font-medium text-white/90">
+            {images[current].caption}
+          </p>
+        </div>
+      )}
 
       {/* Arrows — visible on hover */}
       <button

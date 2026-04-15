@@ -5,9 +5,9 @@ import { Separator } from "@/components/ui/separator";
 import { ImageCarousel } from "@/components/image-carousel";
 
 const travelImages = [
-  { src: "/images/travel/osaka_castle.png", alt: "Osaka Castle in Japan on a clear day" },
-  // Add more travel/hiking photos here:
-  // { src: "/images/travel/your_photo.jpg", alt: "Description" },
+  { src: "/images/travel/osaka_castle.png", alt: "Osaka Castle in Japan on a clear day", caption: "Osaka Castle, Japan" },
+  { src: "/images/travel/newport.jpg", alt: "Beach at Newport, Oregon", caption: "Newport, Oregon" },
+  { src: "/images/travel/hiking.jpg", alt: "Hiking in the Pacific Northwest", caption: "Pacific Northwest trails" },
 ];
 
 export default function PersonalPage() {
