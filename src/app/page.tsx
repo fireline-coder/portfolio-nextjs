@@ -23,6 +23,7 @@ export default function OverviewPage() {
             firefighter&apos;s mindset
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2.5">
+            <Badge variant="secondary">Java</Badge>
             <Badge variant="secondary">Kafka</Badge>
             <Badge variant="secondary">Snowflake</Badge>
             <Badge variant="secondary">AWS</Badge>
