@@ -157,7 +157,7 @@ export default function PersonalPage() {
               <h3 className="font-semibold text-foreground">Gaming</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 I take my games seriously &mdash; I peaked at top 500 in
-                Overwatch, which is roughly the top 0.1% of players. That
+                Overwatch, which is roughly the top 0.005% of players. That
                 competitive drive actually led to a connection that helped me
                 get into grad school. Full story coming soon.
               </p>
