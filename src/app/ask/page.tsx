@@ -153,11 +153,11 @@ export default function AskPage() {
                       }`}
                     >
                       {msg.role === "assistant" ? (
-                        <ReactMarkdown
-                          className="prose prose-sm prose-invert max-w-none [&>p]:mb-2 [&>p:last-child]:mb-0 [&>ul]:mb-2 [&>ul]:ml-4 [&>ul]:list-disc [&>ol]:mb-2 [&>ol]:ml-4 [&>ol]:list-decimal [&_li]:mb-1 [&_strong]:text-foreground"
-                        >
-                          {msg.content}
-                        </ReactMarkdown>
+                        <div className="prose prose-sm prose-invert max-w-none [&>p]:mb-2 [&>p:last-child]:mb-0 [&>ul]:mb-2 [&>ul]:ml-4 [&>ul]:list-disc [&>ol]:mb-2 [&>ol]:ml-4 [&>ol]:list-decimal [&_li]:mb-1 [&_strong]:text-foreground">
+                          <ReactMarkdown>
+                            {msg.content}
+                          </ReactMarkdown>
+                        </div>
                       ) : (
                         msg.content
                       )}
