@@ -7,6 +7,7 @@ interface CarouselImage {
   src: string;
   alt: string;
   caption?: string;
+  position?: string;
 }
 
 export function ImageCarousel({ images }: { images: CarouselImage[] }) {
@@ -29,6 +30,7 @@ export function ImageCarousel({ images }: { images: CarouselImage[] }) {
         width={600}
         height={400}
         className="h-48 w-full object-cover transition-opacity duration-300"
+        style={{ objectPosition: images[current].position ?? "center" }}
         unoptimized
       />
 
