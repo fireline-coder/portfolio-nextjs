@@ -62,7 +62,7 @@ export default function PersonalPage() {
                 alt="NIFC Active Fire Map showing wildfires across the Pacific Northwest"
                 width={600}
                 height={400}
-                className="w-full object-cover transition-opacity hover:opacity-80"
+                className="h-48 w-full object-cover transition-opacity hover:opacity-80"
                 unoptimized
               />
             </Link>
@@ -79,7 +79,9 @@ export default function PersonalPage() {
                 these systems work.
               </p>
               <p className="mt-2 text-xs text-muted-foreground/60">
-                Click the map to explore the live NIFC fire map &rarr;
+                I still track fire seasons &mdash;{" "}
+                <span className="underline">explore the live map here</span>{" "}
+                &rarr;
               </p>
             </CardContent>
           </Card>
@@ -90,7 +92,7 @@ export default function PersonalPage() {
               alt="Technical analysis candlestick chart"
               width={600}
               height={400}
-              className="w-full object-cover"
+              className="h-48 w-full object-cover"
               unoptimized
             />
             <CardContent className="px-6 py-5">
@@ -124,7 +126,7 @@ export default function PersonalPage() {
               alt="Osaka Castle in Japan on a clear day"
               width={600}
               height={400}
-              className="w-full object-cover"
+              className="h-48 w-full object-cover"
               unoptimized
             />
             <CardContent className="px-6 py-5">
@@ -140,14 +142,17 @@ export default function PersonalPage() {
           </Card>
 
           <Card className="overflow-hidden border-border/50">
-            <Image
-              src="/images/top500.png"
-              alt="Overwatch competitive profile showing top 500 rank"
-              width={600}
-              height={400}
-              className="w-full object-cover"
-              unoptimized
-            />
+            <div className="relative">
+              <Image
+                src="/images/top500.png"
+                alt="Overwatch competitive profile showing top 500 rank"
+                width={600}
+                height={400}
+                className="h-48 w-full object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">Gaming</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
