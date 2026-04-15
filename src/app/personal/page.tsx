@@ -78,11 +78,6 @@ export default function PersonalPage() {
                 part situational awareness, part genuine fascination with how
                 these systems work.
               </p>
-              <p className="mt-2 text-xs text-muted-foreground/60">
-                I still track fire seasons &mdash;{" "}
-                <span className="underline">explore the live map here</span>{" "}
-                &rarr;
-              </p>
             </CardContent>
           </Card>
 
