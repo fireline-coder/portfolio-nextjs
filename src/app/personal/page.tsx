@@ -63,6 +63,7 @@ export default function PersonalPage() {
                 width={600}
                 height={400}
                 className="w-full object-cover transition-opacity hover:opacity-80"
+                unoptimized
               />
             </Link>
             <CardContent className="px-6 py-5">
@@ -90,6 +91,7 @@ export default function PersonalPage() {
               width={600}
               height={400}
               className="w-full object-cover"
+              unoptimized
             />
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">
@@ -123,6 +125,7 @@ export default function PersonalPage() {
               width={600}
               height={400}
               className="w-full object-cover"
+              unoptimized
             />
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">
@@ -143,6 +146,7 @@ export default function PersonalPage() {
               width={600}
               height={400}
               className="w-full object-cover"
+              unoptimized
             />
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">Gaming</h3>
