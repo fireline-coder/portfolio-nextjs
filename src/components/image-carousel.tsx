@@ -23,16 +23,22 @@ export function ImageCarousel({ images }: { images: CarouselImage[] }) {
   );
 
   return (
-    <div className="group relative">
-      <Image
-        src={images[current].src}
-        alt={images[current].alt}
-        width={600}
-        height={400}
-        className="h-48 w-full object-cover transition-opacity duration-300"
-        style={{ objectPosition: images[current].position ?? "center" }}
-        unoptimized
-      />
+    <div className="group relative h-48">
+      {/* All images rendered and stacked — toggle opacity for smooth transitions */}
+      {images.map((image, i) => (
+        <Image
+          key={image.src}
+          src={image.src}
+          alt={image.alt}
+          width={600}
+          height={400}
+          className={`absolute inset-0 h-48 w-full object-cover transition-opacity duration-300 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ objectPosition: image.position ?? "center" }}
+          unoptimized
+        />
+      ))}
 
       {/* Caption */}
       {images[current].caption && (
