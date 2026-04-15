@@ -122,7 +122,7 @@ export default function PersonalPage() {
           When I&apos;m Not Working
         </h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <Card className="overflow-hidden border-border/50">
+          <Card className="overflow-hidden border-border/50 pt-0">
             <ImageCarousel images={travelImages} />
             <CardContent className="px-6 py-5">
               <h3 className="font-semibold text-foreground">
@@ -136,14 +136,14 @@ export default function PersonalPage() {
             </CardContent>
           </Card>
 
-          <Card className="overflow-hidden border-border/50">
+          <Card className="overflow-hidden border-border/50 pt-0">
             <div className="relative">
               <Image
                 src="/images/top500.png"
                 alt="Overwatch competitive profile showing top 500 rank"
                 width={600}
                 height={400}
-                className="w-full"
+                className="h-48 w-full object-cover"
                 unoptimized
               />
               <div className="absolute inset-0 bg-black/15" />
