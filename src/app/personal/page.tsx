@@ -148,7 +148,7 @@ export default function PersonalPage() {
                 alt="Overwatch competitive profile showing top 500 rank"
                 width={600}
                 height={400}
-                className="h-48 w-full object-cover"
+                className="w-full object-contain"
                 unoptimized
               />
               <div className="absolute inset-0 bg-black/20" />
