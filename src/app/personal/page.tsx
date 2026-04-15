@@ -57,7 +57,7 @@ export default function PersonalPage() {
           What I&apos;m Into
         </h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <Card className="overflow-hidden border-border/50">
+          <Card className="overflow-hidden border-border/50 pt-0">
             <Link
               href="https://experience.arcgis.com/experience/da5c827bd3714267b847563ca52d7320"
               target="_blank"
@@ -88,7 +88,7 @@ export default function PersonalPage() {
             </CardContent>
           </Card>
 
-          <Card className="overflow-hidden border-border/50">
+          <Card className="overflow-hidden border-border/50 pt-0">
             <Image
               src="/images/investing.png"
               alt="Technical analysis candlestick chart"
