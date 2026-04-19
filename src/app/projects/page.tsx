@@ -54,7 +54,7 @@ const projects = [
       "Continued iterating on it. Showing users how their AI-generated subject lines performed compared to non-generated ones would have driven adoption and demonstrated ROI more clearly. I'd also add more monitoring around usage patterns and generation quality.",
   },
   {
-    title: "Schema-Agnostic Data Ingestion Platform (1M Records/Min)",
+    title: "Schema-Agnostic Data Ingestion Platform (1M Records/10 Min)",
     tldr: "Greenfield platform enabling customers to bring any structured data into Act-On for segmentation and personalized marketing — the most complex project I've worked on.",
     problem:
       "Act-On had no way for customers to integrate proprietary structured data — college grades, concert tickets, sales records — for segmentation and personalized marketing. Customers needed a schema-agnostic system that could handle arbitrary data shapes, both profile data (student records, contact info) and behavior data (event attendance, purchases), with both batch and real-time ingestion.",
@@ -63,7 +63,7 @@ const projects = [
       "Batch mode: S3 upload → ordered queue → SCDF job → validate/transform → Snowpipe Streaming → Snowflake staging → changeset detection → merge → Kafka",
       "Streaming mode: Kafka topic (webhooks) → microbatch by account/object ID → same validation-through-merge pipeline",
       "Per-row/per-column validation with detailed error reports (expected formats, fix suggestions, error codes mapped to logs for support)",
-      "Performance iterated from ~2 hours per 100K records to 1M records (52 columns, 1 GB) in under one minute",
+      "Performance iterated from ~2 hours per 100K records to 1M records (52 columns, 1 GB) in under 10 minutes",
     ],
     keyChallenge:
       "Date/datetime parsing without guaranteed format hints. Customers could provide dates in virtually any format, and the system had to figure it out — a deceptively hard problem at scale across dozens of locales and conventions.",
